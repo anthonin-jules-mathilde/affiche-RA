@@ -1,0 +1,68 @@
+# Publie le site sur GitHub Pages à chaque push sur main.
+# Une seule fois par dépôt : Settings › Pages › Source : « GitHub Actions ».
+name: Publier sur GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          # Pas de « cache: npm » : il exige un package-lock.json, que l'export
+          # Google AI Studio ne pousse pas toujours.
+
+      # Google AI Studio réécrit package-lock.json à chaque push (sans « resolved »
+      # ni « integrity », parfois désynchronisé de package.json), ou ne le pousse
+      # pas du tout : npm ci échoue alors.
+      # Dans ce cas, on ignore le lock et on réinstalle depuis package.json.
+      - name: Installer les dépendances
+        run: |
+          if [ -f package-lock.json ] && grep -q '"resolved"' package-lock.json && npm ci --no-audit --no-fund; then
+            echo "package-lock.json valide : npm ci"
+          else
+            echo "::warning::package-lock.json absent, incomplet ou désynchronisé (export Google AI Studio ?) : installation avec npm install."
+            rm -rf node_modules package-lock.json
+            npm install --no-audit --no-fund
+          fi
+
+      # Affiche les erreurs/avertissements dans le journal, sans bloquer la publication.
+      - name: Vérifier experience/
+        run: npm run check
+
+      - name: Construire le site
+        run: npm run build
+
+      - name: Préparer la publication
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Publier
+        id: deployment
+        uses: actions/deploy-pages@v4
