@@ -1,9 +1,23 @@
 {
   "$schema": "../core/schema/experience.schema.json",
   "title": "Affiche augmentée",
-  "author": "DNMade 2 Numérique",
+  "author": "Anthonin Brosset",
   "onLost": "hide",
-  "theme": { "color": "#ff3b30", "textColor": "#ffffff", "font": "Space Grotesk" },
-  "behaviors": ["cube-rouge"],
-  "bricks": []
+  "theme": { "color": "#ff2d37", "textColor": "#ffffff", "font": "Space Grotesk" },
+  "bricks": [
+    {
+      "id": "video-anthonin",
+      "type": "video",
+      "src": "assets/RA_Poussin_Version_Final.mp4",
+      "trigger": "found",
+      "appear": "fade",
+      "duration": 600,
+      "x": 0.5,
+      "y": 0.5,
+      "z": 0.05,
+      "width": 1.0,
+      "loop": true,
+      "sound": true
+    }
+  ]
 }
