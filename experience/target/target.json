@@ -1,24 +1,24 @@
 {
-  "imagePath": "image-targets/show-chaud-facade-1_luminance.jpg",
+  "imagePath": "image-targets/oct-16-doc-1-by-iscanner_luminance.jpg",
   "metadata": null,
-  "name": "show-chaud-facade-1",
+  "name": "oct-16-doc-1-by-iscanner",
   "type": "PLANAR",
   "properties": {
     "left": 0,
-    "top": 327,
-    "width": 4344,
-    "height": 5792,
+    "top": 61,
+    "width": 1488,
+    "height": 1984,
     "isRotated": false,
-    "originalWidth": 4344,
-    "originalHeight": 6446
+    "originalWidth": 1488,
+    "originalHeight": 2105
   },
   "resources": {
-    "originalImage": "show-chaud-facade-1_original.jpg",
-    "croppedImage": "show-chaud-facade-1_cropped.jpg",
-    "thumbnailImage": "show-chaud-facade-1_thumbnail.jpg",
-    "luminanceImage": "show-chaud-facade-1_luminance.jpg",
-    "posterImage": "show-chaud-facade-1_poster.jpg"
+    "originalImage": "oct-16-doc-1-by-iscanner_original.jpg",
+    "croppedImage": "oct-16-doc-1-by-iscanner_cropped.jpg",
+    "thumbnailImage": "oct-16-doc-1-by-iscanner_thumbnail.jpg",
+    "luminanceImage": "oct-16-doc-1-by-iscanner_luminance.jpg",
+    "posterImage": "oct-16-doc-1-by-iscanner_poster.jpg"
   },
-  "created": 1792055828638,
-  "updated": 1792055828638
+  "created": 1792139187415,
+  "updated": 1792139187415
 }

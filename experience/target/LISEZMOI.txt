@@ -1,4 +1,4 @@
-Cible de l'affiche « show-chaud-facade-1 » — générée le 15/10/2026 11:18:20
+Cible de l'affiche « oct-16-doc-1-by-iscanner » — générée le 16/10/2026 10:27:03
 
 Dépose TOUS ces fichiers dans experience/target/ de ton projet (remplace les fichiers de même nom).
-Reconnaissance : faible (7602 points d'accroche, conseillé ≥ 18000).
+Reconnaissance : faible (6393 points d'accroche, conseillé ≥ 18000).
