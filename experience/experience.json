@@ -4,6 +4,7 @@
   "author": "Anthonin Brosset",
   "onLost": "hide",
   "theme": { "color": "#ff2d37", "textColor": "#ffffff", "font": "Space Grotesk" },
+  "behaviors": ["detourage"],
   "bricks": [
     {
       "id": "video-anthonin",
